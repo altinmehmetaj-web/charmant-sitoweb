@@ -136,21 +136,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // FORM CONTATTI - FORMSPREE
-  const form = document.getElementById("contact-form");
 
-  if (form && form.action.includes("INSERISCI_ID")) {
-
-    form.addEventListener("submit", event => {
-
-      event.preventDefault();
-
-      alert(
-        "Il modulo non è ancora attivo. Inserisci il tuo ID Formspree nell'attributo action del modulo."
-      );
-
-    });
-
-  }
-
-});
