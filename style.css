@@ -877,12 +877,20 @@ button, input, select, textarea {
   }
 }
 
-/* SMARTPHONE */
 
-@media(max-width:650px) {
+/* ========================================
+   SMARTPHONE - CHARMANT
+======================================== */
 
+@media (max-width: 650px) {
+
+  /* HEADER */
   .site-header {
     height: 74px;
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 200;
   }
 
   .brand-mark {
@@ -894,34 +902,67 @@ button, input, select, textarea {
     font-size: 19px;
   }
 
+  /* PULSANTE MENU */
   .menu-toggle {
     display: block;
+    position: relative;
+    z-index: 220;
+    cursor: pointer;
+    background: transparent;
+    color: #ffffff;
+    border: none;
+    font-size: 32px;
+    padding: 5px 8px;
+    line-height: 1;
   }
 
+  /* MENU CHIUSO */
   .main-nav {
     display: none;
     position: absolute;
-    top: 73px;
+    top: 100%;
     left: 0;
     right: 0;
+    width: 100%;
     background: #111316;
     padding: 20px 25px 25px;
     flex-direction: column;
     align-items: stretch;
-    gap: 18px;
-    border-bottom: 1px solid var(--line);
+    gap: 12px;
+    z-index: 210;
+    border-top: 1px solid rgba(255,255,255,.15);
+    box-shadow: 0 12px 25px rgba(0,0,0,.4);
   }
 
+  /* MENU APERTO */
   .main-nav.open {
     display: flex;
   }
 
   .main-nav a {
-    padding: 5px;
+    display: block;
+    width: 100%;
+    padding: 12px 5px;
+    color: #ffffff;
+    font-size: 15px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
   }
 
+  .main-nav a:hover {
+    color: #c7cbd0;
+  }
+
+  .main-nav .nav-cta {
+    text-align: center;
+    margin-top: 8px;
+    border: 1px solid #aeb4bb;
+    padding: 12px;
+  }
+
+  /* HERO */
   .hero {
     padding: 65px 24px 45px;
+    grid-template-columns: 1fr;
   }
 
   .hero h1 {
@@ -946,6 +987,7 @@ button, input, select, textarea {
     bottom: 0;
   }
 
+  /* SEZIONI */
   .section {
     padding: 70px 20px;
   }
@@ -962,6 +1004,7 @@ button, input, select, textarea {
     min-height: 0;
   }
 
+  /* LISTINO */
   .price-grid {
     grid-template-columns: 1fr;
   }
@@ -974,12 +1017,22 @@ button, input, select, textarea {
     font-size: 12px;
   }
 
+  /* CONTATTI */
   .contact-strip {
     align-items: flex-start;
     flex-direction: column;
     padding: 48px 24px;
   }
 
+  .contact-page {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form {
+    padding: 24px 18px;
+  }
+
+  /* FOOTER */
   .footer-main {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -994,14 +1047,7 @@ button, input, select, textarea {
     gap: 7px;
   }
 
-  .contact-page {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form {
-    padding: 24px 18px;
-  }
-
+  /* COOKIE */
   .cookie-banner {
     left: 8px;
     right: 8px;
@@ -1023,7 +1069,10 @@ button, input, select, textarea {
     padding: 8px;
   }
 
+  /* PAGINE INTERNE */
   .page-hero {
     padding: 70px 20px 55px;
   }
+
 }
+
