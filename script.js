@@ -8,38 +8,36 @@ document.addEventListener("DOMContentLoaded", () => {
   if (year) {
     year.textContent = new Date().getFullYear();
   }
+// MENU MOBILE
+const menuButton = document.querySelector(".menu-toggle");
+const nav = document.getElementById("main-nav");
 
-  // MENU MOBILE
-  const menuButton = document.querySelector(".menu-toggle");
-  const nav = document.getElementById("main-nav");
+if (menuButton && nav) {
 
-  if (menuButton && nav) {
+  menuButton.addEventListener("click", () => {
 
-    menuButton.addEventListener("click", () => {
+    const isOpen = nav.classList.toggle("open");
 
-      const isOpen = nav.classList.toggle("open");
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label",
+      isOpen ? "Chiudi il menu" : "Apri il menu");
 
-      menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.textContent = isOpen ? "✕" : "☰";
 
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen ? "Chiudi il menu" : "Apri il menu"
-      );
+  });
 
+  nav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+      nav.classList.remove("open");
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Apri il menu");
+      menuButton.textContent = "☰";
     });
 
-    nav.querySelectorAll("a").forEach(link => {
+  });
 
-      link.addEventListener("click", () => {
-
-        nav.classList.remove("open");
-        menuButton.setAttribute("aria-expanded", "false");
-
-      });
-
-    });
-  }
-
+}
   // COOKIE BANNER
   const banner = document.getElementById("cookie-banner");
   const modal = document.getElementById("cookie-modal");
